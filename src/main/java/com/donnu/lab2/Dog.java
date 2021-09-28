@@ -10,6 +10,10 @@ import javax.annotation.PreDestroy;
 @Scope("prototype")
 public class Dog implements IPet {
 
+    public Dog(){
+        System.out.println("Dog bean was created");
+    }
+
     @Override
     public void say(){
         System.out.println("Gav-Gav!");

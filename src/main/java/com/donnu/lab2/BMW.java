@@ -10,6 +10,10 @@ import javax.annotation.PreDestroy;
 @Scope("prototype")
 public class BMW implements ICar {
 
+    public BMW(){
+        System.out.println("BMW bean was created");
+    }
+
     @Override
     public void explosion(){
         System.out.println("B-O-O-O-M!!!");
