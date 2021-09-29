@@ -11,24 +11,39 @@ import javax.annotation.PreDestroy;
 @Component("employeeBean")
 @Scope("prototype")
 public class Employee {
+
     @Autowired
     @Qualifier("bmwBean")
     private ICar car;
+
     @Autowired
     @Qualifier("dogBean")
     private IPet pet;
+
     @Value("Nikita")
     private String name;
+
     @Value("20")
     private int age;
 
+    public Employee(){
+        System.out.println("Employee bean was created");
+    }
+
     @Autowired
+    public Employee(@Qualifier("dogBean") IPet pet,
+                    @Qualifier("bmwBean") ICar car){
+
+        this.pet = pet;
+        this.car = car;
+        System.out.println("Employee bean was created");
+    }
+
     public void setCar(ICar car) {
         this.car = car;
         System.out.println("Class Employee: set Car");
     }
 
-    @Autowired
     public void setPet(IPet pet){
         this.pet = pet;
         System.out.println("Class Employee: set Pet");
@@ -48,10 +63,6 @@ public class Employee {
 
     public int getAge(){
         return age;
-    }
-
-    public Employee(){
-        System.out.println("Employee bean was created");
     }
 
     public void openTheCar(){

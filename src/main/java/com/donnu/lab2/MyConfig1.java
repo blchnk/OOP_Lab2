@@ -10,7 +10,7 @@ public class MyConfig1 {
     @Bean
     @Scope("prototype")
     public Employee employeeBean(){
-        return new Employee();
+        return new Employee(dogBean(), bmwBean());
     }
 
     @Bean
